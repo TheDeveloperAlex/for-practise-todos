@@ -1,9 +1,11 @@
 import React from "react";
 import AppBar from "./AppBar/AppBar";
 import Home from "./pages/Home";
-import Todos from "./pages/Todos";
+import Todos from "./pages/todos/Todos";
 import ContentContainer from "../Components/Common/Container/ContentContainer/ContentContainer";
 import { Route, Switch } from "react-router-dom";
+import { Provider } from "react-redux";
+// import { store, persistor } from "./redux/store";
 
 const App = () => {
   return (

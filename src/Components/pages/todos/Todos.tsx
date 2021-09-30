@@ -1,50 +1,47 @@
-import React from "react";
+import React, { useState } from "react";
+import modalCreateTask from "../../Common/modals/modalCreateTask/modalCreateTask";
 
 interface ITtodos {
   title: string;
   description?: string;
-  checked: boolean;
+  // checked: boolean;
   id: string;
+  timePlanned: number;
+  // timeWasted: number;
 }
 
 const data: ITtodos[] = [
   {
     title: "Task1",
     description: "doing something 1",
-    checked: false,
+    // checked: false,
     id: "id-1",
+    timePlanned: 1,
+    // timeWasted: 2,
   },
   {
     title: "Task2",
     description: "doing something 2",
-    checked: false,
+    // checked: false,
     id: "id-2",
-  },
-  {
-    title: "Task3",
-    description: "doing something 3",
-    checked: false,
-    id: "id-3",
-  },
-  {
-    title: "Task4",
-    description: "doing something 4",
-    checked: false,
-    id: "id-4",
-  },
-  {
-    title: "Task5",
-    description: "doing something 5",
-    checked: false,
-    id: "id-5",
+    timePlanned: 1,
+    // timeWasted: 0.5,
   },
 ];
 
 const Todos = () => {
+  const [openModalCreate, setOpenModalCreate] = useState(false);
+  const clickCreateTask = () => {
+    console.log(clickCreateTask);
+    setOpenModalCreate(true);
+  };
+
   return (
     <>
       <h1>Todos</h1>
-      <button type="button">Добавить</button>
+      <button type="button" onClick={clickCreateTask}>
+        Добавить
+      </button>
       <ul>
         {data.map((task) => (
           <li key={task.id}>
