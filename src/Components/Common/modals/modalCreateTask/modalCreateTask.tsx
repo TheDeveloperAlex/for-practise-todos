@@ -1,7 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
-import "material-icons/iconfont/material-icons.scss";
 
 interface ItodisBefore {
   title: string;
@@ -10,11 +9,20 @@ interface ItodisBefore {
   id: string;
 }
 
-const modalCreateTask = () => {
+interface IProps {
+  isModalCreate: boolean;
+}
+
+const ModalCreateTask = () => {
+  // useEffect(() => {
+  //   // setIsOpen(false);
+  // }, [isModalCreate]);
+
   const [titleTask, setTitleTask] = useState("");
   const [describ, setDescrib] = useState("");
   const [timePlanned, setTimePlanned] = useState(0);
-  const dispatch = useDispatch();
+  // const [isOpen, setIsOpen] = useState(false);
+  // const dispatch = useDispatch();
 
   const submitForm = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -38,17 +46,19 @@ const modalCreateTask = () => {
     // const hoursPlanned: number = e.target.value;
     //   setTimePlanned(hoursPlanned);
   };
+
   return (
-    <div>
-      <span className="material-icons">clear</span>
-      <form onSubmit={submitForm}>
-        <input type="text" onChange={changeTitleTask} />
-        <input type="text" onChange={changeTaskDescription} />
-        <input type="number" onChange={changeHoursPlanned} />
-        <button type="button">Готово</button>
-      </form>
-    </div>
+    <>
+      <div>
+        <form onSubmit={submitForm}>
+          <input type="text" onChange={changeTitleTask} />
+          <input type="text" onChange={changeTaskDescription} />
+          <input type="number" onChange={changeHoursPlanned} />
+          <button type="button">Готово</button>
+        </form>
+      </div>
+    </>
   );
 };
 
-export default modalCreateTask;
+export default ModalCreateTask;

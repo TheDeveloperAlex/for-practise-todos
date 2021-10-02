@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import modalCreateTask from "../../Common/modals/modalCreateTask/modalCreateTask";
+import ModalCreateTask from "../../Common/modals/modalCreateTask/ModalCreateTask";
+import Modal from "../../Common/modals/modal/Modal";
 
 interface ITtodos {
   title: string;
@@ -30,10 +31,10 @@ const data: ITtodos[] = [
 ];
 
 const Todos = () => {
-  const [openModalCreate, setOpenModalCreate] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const clickCreateTask = () => {
-    console.log(clickCreateTask);
-    setOpenModalCreate(true);
+    // console.log(clickCreateTask);
+    setIsModalOpen(true);
   };
 
   return (
@@ -52,6 +53,9 @@ const Todos = () => {
           </li>
         ))}
       </ul>
+      <Modal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}>
+        <ModalCreateTask />
+      </Modal>
     </>
   );
 };
