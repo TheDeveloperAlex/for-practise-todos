@@ -1,17 +1,22 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import s from "./AppBar.module.css";
+import themes from '../themes/themes'
+import {Wrapper} from './AppBarStyled'
+interface ITheme {
+  theme: any;
+}
 
-const AppBar = () => {
+const AppBar = ({theme}: ITheme) => {
   return (
-    <div className={s.LinkWrapper}>
-      <NavLink to="/" exact className={s.link} activeClassName={s.activeLink}>
+    
+    <Wrapper color={theme.bgColor}>
+      <NavLink to="/" exact className="link" activeClassName="activeLink">
         Home
       </NavLink>
-      <NavLink to="/todos" className={s.link} activeClassName={s.activeLink}>
+      <NavLink to="/todos" className="link" activeClassName="activeLink">
         todos
       </NavLink>
-    </div>
+    </Wrapper>
   );
 };
 

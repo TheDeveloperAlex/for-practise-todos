@@ -1,12 +1,13 @@
 import React from "react";
-import s from "./ContentContainer.module.css";
-
+import { Wrapper } from './ContentContainerStyled'
+import { ITheme } from '../../interfaces/interfaces'
 interface IProps {
   children?: JSX.Element;
+  theme: ITheme;
 }
 
-const ContentContainer = ({ children }: IProps) => {
-  return <div className={s.ContentContainer}>{children}</div>;
+const ContentContainer = ({ children, theme }: IProps) => {
+  return <Wrapper color={theme.bgColor}>{children}</Wrapper>;
 };
 
 export default ContentContainer;
